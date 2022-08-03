@@ -15,6 +15,7 @@ html,body,#content {
 
 #sidebar {
   width: 15%;
+  border-right: 1px solid var(--border-color);
   background: var(--sidebar-background);
   color: var(--content-textcolor);
   padding: 1rem;
@@ -22,18 +23,67 @@ html,body,#content {
   height: 100%;
   position: fixed;
   top: 0;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.sidebar-top {
+  position: absolute;
+  top: 1rem;
+  width: calc(100% - 2rem);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.sidebar-bottom {
+  position: absolute;
+  bottom: 3rem;
+  width: calc(100% - 2rem);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.sidebar-text {
+  margin-left: 10px;
+}
+.sbi {
+  text-align: center;
+  display: grid;
+  place-items: center;
+}
+
+@media only screen and (min-width: 800px) {
+  #sidebar {
+    min-width: 195px;
+    width: 15%;
+  }
+  #content {
+    margin-left: 210px;
+  }
+}
+@media only screen and (min-width: 1300px) {
+  #content {
+    margin-left: 16%;
+  }
+}
+@media only screen and (max-width: 800px) {
+  #sidebar {
+    width: 50px;
+  }
+  .sidebar-text {
+    display: none;
+  }
+  #content {
+    margin-left: 60px;
+  }
 }
 
 .sidebar-item {
   font-family: Gantari, 'Open Sans', Helvetica, Arial, sans-serif;
   font-weight: 600;
   margin: 2px;
-}
-.sidebar-bottom {
-  position: fixed;
-  width: 13% !important;
-  left: 1rem;
-  bottom: 1rem;
+  width: 100%;
 }
 
 a.sidebar-item {
@@ -41,8 +91,7 @@ a.sidebar-item {
   text-decoration: none;
   color: var(--content-textcolor);
   transition: 0.2s;
-  padding: 10px;
-  width: calc(95% - 1rem);
+  padding: 10px 15px 10px 15px;
   border-radius: 5px;
 }
 a.sidebar-item:hover {
@@ -53,10 +102,13 @@ a.sidebar-item:hover {
 .ttl {
   font-family: Gantari, 'Open Sans', Helvetica, Arial, sans-serif;
   padding: 13px;
-  padding-left: 20px;
+  padding-left: 30px;
+  border-bottom: 1px solid var(--border-color);
   background-color: var(--title-background);
   font-size: 24px;
   font-weight: 600;
+  display: flex;
+  justify-content: space-between;
 }
 .postmakersect {
   position: fixed;
@@ -64,7 +116,7 @@ a.sidebar-item:hover {
   bottom: 20px;
   padding: 10px;
   border-radius: 100%;
-  background-color: var(--title-background);
+  background-color: rgba(0,0,0,0.15);
   color: rgb(77, 127, 233);
   text-decoration: none;
   transition: 0.2s;
@@ -77,7 +129,7 @@ a.sidebar-item:hover {
   font-size: 36px;
 }
 .postmakersect:hover {
-  background-color: var(--title-hover-background);
+  background-color: rgba(0,0,0,0.1);
   transform: translateY(-2px);
 }
 
@@ -118,4 +170,13 @@ a {
 a:hover {
   color: var(--content-textcolor);
   background: var(--link-color);
+}
+
+.item-logo {
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  margin-right: 10px;
 }

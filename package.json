@@ -1,7 +1,7 @@
 {
   "name": "quickmind",
   "productName": "quickmind",
-  "version": "0.6.0",
+  "version": "0.8.0",
   "description": "Epic note-keeping and to-do app built in Electron by quick",
   "main": "src/index.js",
   "scripts": {
@@ -31,10 +31,10 @@
         {
           "name": "@electron-forge/maker-squirrel",
           "config": {
-            "appId": "design.foxl.foxlmind",
-            "name": "foxlmind",
-            "productName": "Foxlmind",
-            "copyright": "© Copyright 2022 foxlldev"
+            "appId": "design.quick.quickmind",
+            "name": "quickmind",
+            "productName": "quickmind",
+            "copyright": "© Copyright 2022 quick"
           }
         },
         {
@@ -55,6 +55,9 @@
     }
   },
   "dependencies": {
+    "@electron/remote": "^2.0.8",
+    "electron": "^19.0.7",
+    "electron-forge": "^5.2.4",
     "electron-json-storage": "^4.5.0",
     "electron-squirrel-startup": "^1.0.0",
     "electron-updater": "^5.0.5",

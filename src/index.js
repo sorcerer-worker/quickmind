@@ -1,4 +1,5 @@
-const { app, BrowserWindow, ipcMain } = require('electron');
+const { app, BrowserWindow, ipcMain, webContents } = require('electron');
+require('@electron/remote/main').initialize();
 const path = require('path');
 const { autoUpdater } = require("electron-updater");
 const os = require('os');
@@ -11,10 +12,10 @@ if (require('electron-squirrel-startup')) { // eslint-disable-line global-requir
 }
 
 const createWindow = () => {
-  storage.setDataPath(os.tmpdir());
+  storage.setDataPath(os.homedir+"/quickmind");
   console.log(storage.getDataPath());
   console.log(storage.getDefaultDataPath());
-  console.log(os.tmpdir());
+  console.log(os.homedir+"/quickmind");
 
   // Create the browser window.
   mainWindow = new BrowserWindow({
@@ -23,9 +24,11 @@ const createWindow = () => {
     width: 980,
     height: 580,
     autoHideMenuBar: true,
+    icon: path.join(__dirname, '/assets/media/logo.png'),
     webPreferences: {
       nodeIntegration: true,
       contextIsolation: false,
+      enableRemoteModule: true
     }
   });
 
@@ -35,6 +38,8 @@ const createWindow = () => {
   mainWindow.on('ready-to-show', () => {
     autoUpdater.checkForUpdatesAndNotify();
   });
+
+  require('@electron/remote/main').enable(mainWindow.webContents);
 };
 
 // This method will be called when Electron has finished

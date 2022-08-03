@@ -1,0 +1,11 @@
+{
+  "table": [
+    {
+      "date": "endless",
+      "type": "note",
+      "title": "Welcome to quickmind...",
+      "content": "Thank you for using quickmind!<br>Your princess is in the wrong castle, expect this to get even more confusing.<br>Why are you still reading?",
+      "state": "visible"
+    }
+  ]
+}
